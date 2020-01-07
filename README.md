@@ -1,44 +1,23 @@
-# Ft_printf (Printf's refactoring)
+# ft\_printf @ 42
+Because I'm tired of using putnbr and putstr
 
-## Project Overview
-Ft_printf is a 42 Project that aims to mimic the printf function (included in <stdio.h>).<br /><br />
-<br /><br />Bonus :
-1) <strong>~ at 175% faster than original printf (included in <stdio.h>)!</strong>.
-2) Handles multiple file descriptor (use ft_dprintf(int fd, char const format, ...) instead of ft_printf).
-3) All flags stored on only 14 bits.
-4) Wildcard Length_modifier (%*) : replaces precision and field_width with parameter in va_list ap.
-5) print_len with %n.
-6) displaying errno with %m.
-7) colors with '%{' (%{red}).
-8) %f and %F to handle double and float numbers.
+This project aims at rebuilding the printf library with basic functionality. I
+tried to implement as much of the original as possible, and also have a few
+extra things which I found to be rather useful.
 
-## How to use it
+Some choices were not intentional (some behaviors were replicated from OS X's
+printf, others were not replicated) and overall the code is messier than I would
+have hoped. At least it works!
 
-### Download and compile the library
+## Compiling
+ Run `make` to compile the
+library. Use it like you would use the `printf` function:
 
+```c
+int i;
+
+i = 42;
+ft_printf("value: %d\n", i);
+
+// value: 42
 ```
-git clone https://github.com/Makounouchi-Ippo/Ft_printf.git ~/Ft_printf
-cd ~/Ft_printf
-make
-```
-
-### Compile with your files
-
-If you want to create a quick prog with the static library created before :
-Add the include in your header.h or in your file ⇣
-```
-#include "ft_printf.h"
-```
-Then compile just like that ⇣
-```
-gcc -I include -o prog yourfile1.c yourfile2.c -L. -lftprintf
-```
-And execute it easily ⇣
-```
-./prog
-```
-
-
-## Contact or contribute
-
-If you want to contact me, or fix / improve this project, just send me a mail at mehel-ka@student.42.fr
